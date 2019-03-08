@@ -8,7 +8,7 @@ class TabLink {
     
     // We need to find out if a user clicked 'all' cards or a specific category.  Follow the instructions below to accomplish this task:    
     
-    /* <- Delete this comment block when you work on the if statement
+    
     // Check to see if this.tabData is equal to 'all'
     if(){
       // If `all` is true, select all cards regardless of their data attribute values
@@ -17,7 +17,7 @@ class TabLink {
       // else if `all` is false, only select the cards with matching this.tabData values
       // this.cards = ;
     }
-    /* <- Delete this comment block when you work on the if statement
+ 
 
      // Map over the newly converted NodeList we just created in our if statement above. Convert each this.cards element into a new instance of the TabCard class. Pass in a card object to the TabCard class. 
     // this.cards = Array.from(this.cards).map();
@@ -44,29 +44,33 @@ class TabLink {
     // this.tabElement;
   
     // Notice we are looping through the this.cards array and invoking selectCard() from the TabCard class. Just un-comment the code and study what is happening here.
-    // this.cards.forEach(card => card.selectCard());
+      this.cards.forEach(card => card.selectCard());
   }
 }
-
-class TabCard {
+ class TabCard {
   constructor(cardElement){
     // Assign this.cardElement to the cardElement DOM reference
-    // this.cardElement;
+    this.cardElement = cardElement;
   }
   selectCard(){
     // Update the style of this.cardElement to display = "flex"
-    // this.cardElement;
+    this.cardElement = this.cardElement.style.display = 'flex' ;
   }
 
 }
+  
 
-/* START HERE: 
 
-- Select all classes named ".tab" and assign that value to the tabs variable
 
-- With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
+//   START HERE: 
 
-- In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
+// - Select all classes named ".tab" and assign that value to the tabs variable
 
-*/
-let tabs = document.querySelectorAll();
+// - With your selection in place, now chain a .forEach() method onto the tabs variable to iterate over the DOM NodeList
+
+// - In your .forEach() method's callback function, return a new instance of TabLink and pass in each tab as a parameter
+
+
+let tabs = document.querySelectorAll('.tabs .tab')
+ 
+tabs.forEach(tab => new TabLink(tab));
